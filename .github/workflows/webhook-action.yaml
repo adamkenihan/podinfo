@@ -6,8 +6,10 @@ on:
       - 'master'
 
 jobs:
-  name: Invoke deployment hook
-    uses: distributhor/workflow-webhook@v3
-      env:
-        webhook_url: ${{ secrets.WEBHOOK_URL }}
-        webhook_secret: ${{ secrets.WEBHOOK_SECRET }}
+  send-webhoob:
+    runs-on: self-hosted
+    name: Invoke deployment hook
+      uses: distributhor/workflow-webhook@v3
+        env:
+          webhook_url: ${{ secrets.WEBHOOK_URL }}
+          webhook_secret: ${{ secrets.WEBHOOK_SECRET }}
