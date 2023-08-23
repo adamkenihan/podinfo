@@ -1,0 +1,13 @@
+name: webhook-action
+
+on:
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  name: Invoke deployment hook
+    uses: distributhor/workflow-webhook@v3
+      env:
+        webhook_url: ${{ secrets.WEBHOOK_URL }}
+        webhook_secret: ${{ secrets.WEBHOOK_SECRET }}
